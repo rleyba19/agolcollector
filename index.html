@@ -27,8 +27,8 @@
     <script>
 
         // Adding Require Statements
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate" ],
-         (esriConfig, Map, MapView, Locate) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search" ],
+         (esriConfig, Map, MapView, Locate, Search) => {
          
             // Setting the API Key
             esriConfig.apiKey = "AAPKb3b917a71b384d9c980323166c00b352K9aWDB7yfHu8XgITNYsg9a9Rdro073rUpzYDGP3rtUrvpzA4M7M7WnIhdV-xEZ_s";
@@ -53,7 +53,14 @@
 
             view.ui.add(locateBtn, "top-left");
 
-            
+
+            const searchWidget = new Search({
+                view: view
+            });
+
+            view.ui.add(searchWidget, {
+                position: "top-right"
+            });
         });
 
     </script>
