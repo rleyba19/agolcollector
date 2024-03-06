@@ -27,7 +27,8 @@
     <script>
 
         // Adding Require Statements
-        require(["esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate" ],
+         (esriConfig, Map, MapView, Locate) => {
          
             // Setting the API Key
             esriConfig.apiKey = "AAPKb3b917a71b384d9c980323166c00b352K9aWDB7yfHu8XgITNYsg9a9Rdro073rUpzYDGP3rtUrvpzA4M7M7WnIhdV-xEZ_s";
@@ -45,7 +46,16 @@
                 zoom: 15, // Sets the zoom level based on level of detail (LOD)
                 center: [-82.346, 29.644] // Sets the center point of the view in lon/lat
             });
+
+            const locateBtn = new Locate({
+                view: view
+            });
+
+            view.ui.add(locateBtn, "top-left");
+
+            
         });
+
     </script>
 
 
